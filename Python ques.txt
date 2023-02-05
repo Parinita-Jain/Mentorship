@@ -1,0 +1,259 @@
+https://gknxt.com/python/book/python-book/
+
+What is Python
+
+Python is an object-oriented programming language that was released in 1991. Python has become one of the world’s most popular programming languages. Today, it is the most popular data science and AI programming language. Python powers YouTube, helps NASA in exploring space, runs Instagram, tests chips at Intel, powers Google search engine, and even power transactions on the New York Stock Exchange (NYSE). Almost all Fortune 500 companies use python and it was made a compulsory subject at school level in many countries including India.
+
+
+What's the current version of Python
+
+What are the advantages of Python
+1.Open-source
+One reason for Python's popularity is that it's code is open-source. That means its source code is made freely available for public and may be redistributed and modified according to the requirement of the user.
+2.Object-Oriented
+This language supports both the procedural and object-oriented programming paradigms. While functions help us with code reusability, classes and objects let us model the real world. A class allows the encapsulation of data and functions into one.
+3.Standard Libraries
+Python comes with an extensive set of libraries and it contain code for various purposes like regular expressions, documentation-generation, unit-testing, web browsers, threading, databases, CGI, email, image manipulation, and more. So, we don’t have to write the complete code for that manually. There are more than 10,000 python libraries developed by government organizations, Corporates, Non-Profit Organization, Universities etc. As there are libraries for any task imaginable, python saves lot of time and money for users
+4.High-level language
+5.portable
+6.interpreted
+Compiling a large high-level language program into machine language can take considerable computer time. Interpreter programs, developed to execute high-level language programs directly, avoid the delay of compilation, although they may run slower than compiled programs. The most widely used Python implementation — CPython ( written in the C programming language) — uses a clever mixture of compilation and interpretation to run programs. Python compiles source code to a set of instructions for a virtual machine, and the Python interpreter is an implementation of that virtual machine. This intermediate format is called "bytecode."
+7.extensible
+Python can be extended to other languages. You can write some of your code in languages like C++ or C. You can also put your Python code in your source code of a different language, like C++. This allows us add scripting capabilities to our code in the other language.
+8.General purpose
+You can use python to build websites, develop games, build machine learning models, AI applications like autonomous cars, IOT application or for practically any task that needs to be automated or optimized.
+9.Cross-platform language
+Python a cross-platform language, running equally well on Windows, Linux/UNIX, and Mac platforms, as well as others, ranging from supercomputers to smart phones.
+
+
+
+What are the disadvantages/limitations of Python
+1.Speed of execution
+The main drawback with Python is its speed of execution. It isn’t a fully compiled language. Instead, it’s first compiled to an internal bytecode form, which is then executed by a Python interpreter. Python is slower in execution than C. Some of its speed limitations are due to its default implementation, cPython, being single-threaded. That is, cPython doesn’t use more than one hardware thread at a time. And while you can use the threading module built into Python to speed things up, threading only gives you concurrency, not parallelism. It’s good for running multiple tasks that aren’t CPU-dependent, but does nothing to speed up multiple tasks that each require a full CPU. This limitation is less noticable now than few years back as GPU-based servers have become many-fold powerful in the last ten years.
+
+2.Concurrency
+Standard implementation of Python isn’t designed to use multiple cores. Python does include a native way to run a Python workload across multiple CPUs. The multiprocessing module spins up multiple copies of the Python interpreter, each on a separate core, and provides primitives for splitting tasks across cores. But sometimes even multiprocessing isn’t enough. Sometimes the job calls for distributing work not only across multiple cores, but also across multiple machines. This limitation is less noticable now than few years back as several libraries and frameworks were developed by open-source community to overcome this limitation. These Python toolkits can take an existing Python application and spread the work across multiple cores, multiple machines, or both. Some of the most popular frameworks are: Ray, Dask, Dispy, Pandaral·lel, Ipyparallel and Joblib
+
+
+immutable and hashable---
+An object of immutable data
+type cannot be changed after
+creation. If a change is
+needed, the object will be
+destroyed and a new object
+will be created. In general,
+immutable objects are faster
+and take less memory.
+
+An objec t is hashable i f i t has
+a hash va lue which never
+changes during i ts li fe time, i f
+and only i f the objec t is
+immu table.
+All bui lt-in immutable da ta
+types a re hashable.
+A tup le is hashable only i f all
+i ts elemen ts a re hashable
+User-de fined types are
+hashable by de fault because
+thei r hash v a lue is thei r id()
+
+Hashing has to ensu re tha t i f a == b, then hash (a ) == hash (b )
+
+a=4
+b=4
+hash(a)==hash(b)
+
+The zip (*iterables, stric t=False ) func tion re tu rns an i tera to r o f tuples,
+where the ith tuple contains the ith element from each o f the i terables
+
+a=[1,2,3]
+b=['s','t','u']
+c=zip(a,b)
+list(c)
+
+t=[1,2,3,3]
+u=list(zip(t))
+o/p=[(1,),(2,),(3,),(3,)]
+
+d={3,1,2}
+e={'b','a','c'}
+f=zip(d,e) # this gives unpredictable result
+list(f)
+o/p:[(1,'c'),(2,'a'),(3,'b')]
+
+p=[True,3.14,(1,2)]
+q={"p","w","h"} # set is an unordered iterable
+r=[10,555,0,77,121,0] #unequal length of iterators ignored by default
+s=zip(p,q,r)
+list(s)
+[(True,"w",10),(3.14,"p",555),((1,2),"h",0)]
+
+a=[]
+a.append(42)
+a.append("Hello")
+b=[1,2,3]
+a.append(b)
+
+a.insert(0,a)
+
+a=[1,2,3]
+b=[4,5,6]
+a.extend(b)
+
+a+b
+
+g=[1,2,3]
+g.reverse()
+l=a[::-1]
+
+a=[4,-1,5]
+a.sort()
+
+a=[4,-1,5,None]
+a.sort() ##error
+
+a.sort(reverse=True)
+
+f=["banaban","apple","kiwi"]
+f.sort(key=f.len())
+
+f.sort(key=str.lower)
+
+l=[1,2,3,'a','b']
+l.remove('b')
+
+Assignment statements do not copy objects, they create bindings between
+a target and an object. So, assignment statement, instead of creating a
+new object, will simply point the new variable towards the existing object
+
+o=[1,2]
+c=o
+id(o)
+id(c)
+c.append("n")
+c
+o
+
+A shallow copy constructs a new compound object (objects that
+contain other objects) and then (to the extent possible) inserts
+references into it to the objects found in the original.
+A shallow copy can be created in many ways.
+
+import copy
+c1=copy.copy(o)
+c2=list(o)
+c3=o
+c4=o+[]
+c5=o*1
+c6=[i for i in o]
+c7=o.copy()
+
+A deep copy constructs a new compound object and then, recursively,
+inserts copies into it of the objects found in the original. So, deep copy
+creates a new copy at a different memory location with no connection to
+the original object whatsoever. It can be created with the deepcopy()
+method from the copy module.
+
+c8=copy.deepcopy(o)
+id(c8)
+id(o)
+c8[0]=8
+c8
+o
+
+For immutable objects, shallow and deep copy are same. The difference
+between shallow and deep copying is only relevant for compound objects
+(objects that contain other objects) with mutable objects.
+
+
+
+
+
+What is the key difference between tuples and lists?
+The main difference between the tuples and lists is that the tuples are immutable objects and lists are mutable. So, tuples cannot be modified while the lists can be modified. Tuples are more memory efficient than the lists and hence are typically faster.
+
+
+List methods
+1) append 2) clear 3) copy 4) count
+5) extend 6) index 7) insert 8) pop
+9) remove 10) reverse 11) sort
+
+Tuple methods
+1) count 2) index
+
+
+How to sort elements of a tuple?
+Python tuples do not have the sort method. So, to sort the elements of a tuple, the sorted builtin function can be used by passing the tuple as the argument. The function returns a list with the items of tuple sorted in ascending order. This list can be converted into a tuple by using tuple( ) The default sorting order is ascending order. The reverse=True parameter sorts the items in descending order.
+
+tup_raw = (7, 2, 5, 4)
+result = sorted(tup_raw)
+tup_sorted = tuple(result)
+print('Sorted Tuple :', tup_sorted)
+
+tup_raw = (7, 2, 5, 4)
+result = sorted(tup_raw, reverse=True)
+tup_sorted = tuple(result)
+print('Sorted Tuple :', tup_sorted)
+
+How to find the number of occurrence of an element in a tuple?
+my_tuple.count(element) will give the number of occurrence of an element in my_tuple
+
+How to delete a tuple?
+del.my_tuple would delete my_tuple
+
+How to add an element to a tuple?
+Since tuples are immutable, elements cannot be added/modified/deleted from a tuple.
+
+How to find the index of specific element in a tuple?
+my_tuple.index(element,start,end) would retun the position of the first occurrence of the element in the tuple and If the element is not found, ValueError is raised.
+
+How to compare two tuples to see if they have the same elements?
+Python's python inbuilt cmp method can be used to compare two tuples to see if they have the same elements
+
+Can a tuple be a member in another tuple?
+Yes, tuples can be nested to any depth needed.
+tup1 = (1, 2, 3)
+tup2 = ('gk', 'nxt')
+nested_tuple = (tup1, tup2)
+
+How to convert a tuple into a list?
+A tuple can be converted into a list by using the list constructor with the tuple as the argument
+list(my_tuple)
+
+How to convert a list into a tuple?
+A list can be converted into a tuple by using the tuple constructor with the list as the argument
+tuple(my_list)
+
+What is a tuple?
+A tuple is an immutable, ordered collection of objects. Python’s creator intended tuples for heterogenous data. Tuples are Python's way of packaging heterogeneous pieces of information in a composite object. For example, socket = ('www.python.org', 80) brings together a string and a number so that the host/port pair can be passed around as a socket, a composite object
+
+
+Can a tuple be a member in itself?
+Yes, but it will create a circular reference
+
+How to remove duplicates from a list?
+Starting with Python 3.7, dictionary is insertion-ordered. So, dict.fromkeys(mylist) will remove the duplicates from a list preserving the original order of the list.
+items = [1, 2, 0, 1, 3, 2]
+list(dict.fromkeys(items))
+To remove the duplicates from a list and the original order of the list need not be preserved, assigning the list to a set and then converting it back to list will remove all the duplicates from the list (sets will not necessarily maintain the order of a list)
+items = [1, 2, 0, 1, 3, 2]
+list(set(items))
+
+What are the main differences between shallow copy and deep copy?
+The difference between shallow and deep copying is only relevant for compound objects (objects that contain other objects, like lists or class instances)
+Shallow copying duplicates as little as possible. A shallow copy constructs a new compound object and then (to the extent possible) inserts references into it to the objects found in the original.
+Deep copying replicates the original at a different memory location, so the copy is totally independent with no connection to the original. A deep copy constructs a new compound object and then, recursively, inserts copies into it of the objects found in the original. So, any changes made to the copy do not reflect in the original and any changes made to the original do not reflect in the copy.
+
+new_list = original_list[:]
+new_list = original_list + [ ]
+new_list = list(original_list)
+new_list = original_list * 1
+new_list = [i for i in original_list]
+import copy
+new_list = copy.copy(original_list)
+
+Deep capy can only be done using deepcopy ( ) method of copy module
+
+import copy
+new_list = copy.deepcopy(original_list)
